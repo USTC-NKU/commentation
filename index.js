@@ -37,7 +37,7 @@ module.exports = Application({
 	  </div>
 	  <br/>
     </div>`
-  async postSave(comment) {
-    // do what ever you want after save comment
-  },
+//   async postSave(comment) {
+//     // do what ever you want after save comment
+//   },
 });
