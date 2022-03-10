@@ -1,8 +1,18 @@
 const Application = require('@waline/vercel');
 
-module.exports = Application({
+module.exports = Waline({
+  forbiddenWords: [
+        '习近平',
+        '毛泽东',
+        '快递',
+        '空包',
+        '代发'
+    ],
+  secureDomains: [
+        'waline.js.org',
+    ],
   mailSubject: '{{parent.nick}}，您在博客「{{site.name}}」上的评论收到了回复',
-  mailTemplate: `
+  mailTemplate: '
   <head>
     <base target="_blank" />
     <style id="scrollbar" type="text/css">
@@ -70,9 +80,9 @@ module.exports = Application({
             </div><img src="https://cdn.jsdelivr.net/gh/Akilarlxh/Valine-Admin@v1.0/source/img/after.png" alt="after" style="      position: absolute;bottom: -2px;left: 0;background-repeat: no-repeat;width: 530px;height: 259px;z-index:100"></div>
     </div>
 </body>
-    `,
+',
   mailSubjectAdmin: '您的博客「{{site.name}}」收到了新评论',
-  mailTemplateAdmin: `
+  mailTemplateAdmin: '
     <head>
     <base target="_blank" />
     <style id="scrollbar" type="text/css">
@@ -107,7 +117,6 @@ module.exports = Application({
         }
     </style>
 </head>
-
 <body>
     <div style="width: 530px;margin: 20px auto 0;height: 1000px;">
         <div id="form-wrap"><img src="https://cdn.jsdelivr.net/gh/Akilarlxh/Valine-Admin@v1.0/source/img/before.png" alt="before" style="position: absolute;bottom: 126px;left: 0px;background-repeat: no-repeat;width: 530px;height: 317px;z-index:-100">
@@ -130,7 +139,8 @@ module.exports = Application({
                 </form>
             </div><img src="https://cdn.jsdelivr.net/gh/Akilarlxh/Valine-Admin@v1.0/source/img/after.png" alt="after" style="      position: absolute;bottom: -2px;left: 0;background-repeat: no-repeat;width: 530px;height: 259px;z-index:100"></div>
     </div>
-</body>`
+</body>
+'
 //   async postSave(comment) {
 //     // do what ever you want after save comment
 //   },
